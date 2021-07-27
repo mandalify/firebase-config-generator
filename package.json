@@ -1,0 +1,21 @@
+{
+  "name": "@mandalify/firebase-config-generator",
+  "version": "0.1.0",
+  "description": "Generate 'firebase.json' configuration files using TypeScript",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "firebase",
+    "config",
+    "typescript"
+  ],
+  "author": "Jake Krog",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.4.3",
+    "typescript": "^4.3.5"
+  }
+}
