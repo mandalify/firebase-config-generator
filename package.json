@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Generate 'firebase.json' configuration files using TypeScript",
   "main": "./lib/index.js",
+  "repository": "github:mandalify/firebase-config-generator",
   "scripts": {
     "build": "tsc",
     "postinstall": "npm run build",
