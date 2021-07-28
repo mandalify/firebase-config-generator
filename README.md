@@ -49,13 +49,19 @@ generateFirebaseConfig({
 ### 3. Run
 
 #### NPM
-```npm run generate:config```
+```bash
+npm run generate:config
+
+> generate:config
+> ts-node firebase.config.ts
+
+writing firebase.json
+```
 
 #### Yarn
-```yarn generate:config```
+```bash
+yarn generate:config
 
-#### Output
-```
 > generate:config
 > ts-node firebase.config.ts
 
@@ -101,13 +107,23 @@ const storage: StorageConfig = {
     rules: 'storage.rules',
 }
 
+const baseConfig: FirebaseConfig = {
+    firestore,
+    functions,
+    storage,
+}
+
 generateFirebaseConfig({
     // 'default' writes to firebase.json
     default: {
         ...baseConfig,
         functions: {
             ...functions,
-            predeploy: webPredeploySteps.concat(functionsPredeploySteps)
+            predeploy: [
+                "npm --prefix functions install",
+                "npm --prefix functions run lint",
+                "npm --prefix functions run build"
+            ]
         },
         emulators: emulatorsConfig('0.0.0.0', true),
     },
@@ -121,7 +137,9 @@ generateFirebaseConfig({
 ```
 
 **Output**
-```
+```bash
+npm run generate:config
+
 > generate:config
 > ts-node firebase.config.ts
 
